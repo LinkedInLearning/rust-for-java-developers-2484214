@@ -10,6 +10,12 @@ trait DataPipeline<T> {
 
 struct Validator<T>;
 
+impl<T> Validator<T> {
+    fn new() -> Self {
+        todo!()
+    }
+}
+
 impl<T> DataPipeline<T> for Validator<T> {
     fn insert(&mut self, item: T) {
         todo!()
@@ -29,7 +35,7 @@ impl<T> DataPipeline<T> for Validator<T> {
 }
 
 fn main() {
-    let mut vals = Validator::<i32> {};
+    let mut vals = Validator::<i32>::new();
     vals.insert(1);
     vals.insert(10);
     vals.insert(100);

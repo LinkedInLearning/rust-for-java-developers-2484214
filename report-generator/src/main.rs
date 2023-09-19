@@ -30,16 +30,16 @@ impl FromStr for Field {
         }
 
         if let Ok(n) = s.parse::<f64>() {
-            Ok(Field::Number(n))
+            Field::Number(n) // TODO: fix
         } else {
-            Ok(Field::Text(s.to_string()))
+            Field::Text(s.to_string()) // TODO: fix
         }
     }
 }
 
 fn parse_csv<T: Read>(mut source: T) -> Result<TypedCsv> {
     let mut raw_data = String::new();
-    source.read_to_string(&mut raw_data)?;
+    source.read_to_string(&mut raw_data); // TODO: fix
 
     let mut headers = Vec::new();
     let mut rows = Vec::new();
@@ -55,7 +55,7 @@ fn parse_csv<T: Read>(mut source: T) -> Result<TypedCsv> {
         let mut row = HashMap::with_capacity(headers.len());
 
         for (header, raw_field) in headers.iter().zip(line.split(',')) {
-            let field = raw_field.parse::<Field>().ok();
+            let field = raw_field.parse::<Field>(); // TODO: fix
             row.insert(header.clone(), field);
         }
 
@@ -66,7 +66,7 @@ fn parse_csv<T: Read>(mut source: T) -> Result<TypedCsv> {
         rows.push(row);
     }
 
-    Ok(TypedCsv { rows })
+    TypedCsv { rows } // TODO: fix
 }
 
 fn generate_report(csv: &TypedCsv) -> Report {
@@ -84,10 +84,11 @@ fn generate_report(csv: &TypedCsv) -> Report {
             rep.num_fields = row.len();
         }
         for field in row.values() {
+            // TODO: fix below
             match field {
-                Some(Field::Text(t)) => rep.length_of_text_fields += t.len(),
-                Some(Field::Number(n)) => rep.sum_of_numeric_fields += n,
-                None => rep.num_missing_fields += 1,
+                Ok(Field::Text(t)) => rep.length_of_text_fields += t.len(),
+                Ok(Field::Number(n)) => rep.sum_of_numeric_fields += n,
+                Err => rep.num_missing_fields += 1,
             }
         }
     }
@@ -97,7 +98,7 @@ fn generate_report(csv: &TypedCsv) -> Report {
 
 fn main() {
     let data: &[u8] = include_bytes!("dogs.txt");
-    let csv = parse_csv(data).unwrap();
+    let csv = parse_csv(data); // TODO: fix
 
     println!("{:#?}", generate_report(&csv));
 }

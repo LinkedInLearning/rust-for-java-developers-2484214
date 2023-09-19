@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 static TEXT: &str = "
 hello, world!
 how are you?

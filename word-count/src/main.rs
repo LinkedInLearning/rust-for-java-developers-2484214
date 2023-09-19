@@ -18,14 +18,8 @@ fn tokenize(text: &str) -> impl Iterator<Item = &str> {
 
 fn main() {
     let word_counts = tokenize(TEXT)
-        .map(|token| (token, 1))
-        .fold(
-            HashMap::<&str, usize>::new(),
-            |mut counts, (token, count)| {
-                *counts.entry(token).or_insert(0) += count;
-                counts
-        },
-    );
+    // TODO: only use functional programming to generate `word_counts`
+    ;
 
     for (word, count) in word_counts.iter() {
         println!("{}: {}", word, count);

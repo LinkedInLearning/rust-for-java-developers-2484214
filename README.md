@@ -57,5 +57,5 @@ Author, Software Architect
 Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/tim-mcnamara).
 
 [lil-course-url]: https://www.linkedin.com/learning/rust-for-java-developers?dApp=59033956&leis=LAA
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQHpAgZOm7eHew/learning-public-crop_288_512/0/1699387980723?e=2147483647&v=beta&t=5EjgnKAt3DPDXR-bpgmaPCXs_6rRXhZWkbF4QsX32cE
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/D4E0DAQE0-vq_Sz6nhg/learning-public-crop_675_1200/0/1699567936080?e=2147483647&v=beta&t=yB9YvmT4wZM7bqm8gRDw-RMQHPQ_mSC6HKpWLXkSJng
 
